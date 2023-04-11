@@ -1,24 +1,30 @@
-import { Linter } from 'eslint';
-
-export default {
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
   parser: '@typescript-eslint/parser',
   extends: [
     'airbnb',
     'airbnb-typescript',
-    'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   plugins: [
     'react',
-    'prettier',
     'react-hooks',
     '@typescript-eslint',
     'simple-import-sort',
+    'prettier',
   ],
   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.vite.json'],
   },
   rules: {
+    'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 
@@ -58,4 +64,4 @@ export default {
       },
     ],
   },
-} as Linter.Config;
+};
